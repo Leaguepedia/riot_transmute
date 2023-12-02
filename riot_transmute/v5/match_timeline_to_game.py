@@ -68,10 +68,8 @@ def match_timeline_to_game(
             raise ValueError
 
     for frame in match_timeline_dto["frames"]:
-
         # We start by adding player information at the given snapshot timestamps
         for participant_frame in frame["participantFrames"].values():
-
             # Getting our player object
             player = get_player(game, participant_frame["participantId"])
 
