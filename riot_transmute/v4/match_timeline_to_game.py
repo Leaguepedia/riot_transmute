@@ -16,7 +16,6 @@ def match_timeline_to_game(
     game_id: int,
     platform_id: str,
 ) -> lol_dto.classes.game.LolGame:
-
     # Creating the game_dto
     game = lol_dto.classes.game.LolGame()
 
