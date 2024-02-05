@@ -41,14 +41,17 @@ def test_match_to_game_v5(file_name):
         assert isinstance(team.endOfGameStats.firstDragon, bool)
         assert isinstance(team.endOfGameStats.firstRiftHerald, bool)
         assert isinstance(team.endOfGameStats.firstInhibitor, bool)
-        assert isinstance(team.endOfGameStats.firstHorde, bool)
 
         assert isinstance(team.endOfGameStats.turretKills, int)
         assert isinstance(team.endOfGameStats.baronKills, int)
         assert isinstance(team.endOfGameStats.dragonKills, int)
         assert isinstance(team.endOfGameStats.riftHeraldKills, int)
         assert isinstance(team.endOfGameStats.inhibitorKills, int)
-        assert isinstance(team.endOfGameStats.hordeKills, int)
+
+        # In patch 14.1 hordes (void grubs) were added
+        if int(game.patch.split(".")[0]) > 13:
+            assert isinstance(team.endOfGameStats.hordeKills, int)
+            assert isinstance(team.endOfGameStats.firstHorde, bool)
 
         assert len(team.players) == 5
 
