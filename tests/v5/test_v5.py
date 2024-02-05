@@ -41,12 +41,14 @@ def test_match_to_game_v5(file_name):
         assert isinstance(team.endOfGameStats.firstDragon, bool)
         assert isinstance(team.endOfGameStats.firstRiftHerald, bool)
         assert isinstance(team.endOfGameStats.firstInhibitor, bool)
+        assert isinstance(team.endOfGameStats.firstHorde, bool)
 
         assert isinstance(team.endOfGameStats.turretKills, int)
         assert isinstance(team.endOfGameStats.baronKills, int)
         assert isinstance(team.endOfGameStats.dragonKills, int)
         assert isinstance(team.endOfGameStats.riftHeraldKills, int)
         assert isinstance(team.endOfGameStats.inhibitorKills, int)
+        assert isinstance(team.endOfGameStats.hordeKills, int)
 
         assert len(team.players) == 5
 
