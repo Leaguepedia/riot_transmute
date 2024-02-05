@@ -1,5 +1,6 @@
 """MatchDTO-only test.
 """
+
 import os
 
 import lol_dto.utilities
