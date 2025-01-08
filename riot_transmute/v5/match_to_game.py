@@ -114,8 +114,8 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
             inhibitorKills=dto_team["objectives"]["inhibitor"]["kills"],
             firstHorde=dto_team["objectives"].get("horde", {}).get("first"),
             hordeKills=dto_team["objectives"].get("horde", {}).get("kills"),
-            firstAtakhan=dto_team["objectives"].get("atakhan", {}).get("first", False),
-            atakhanKills=dto_team["objectives"].get("atakhan", {}).get("kills", 0),
+            firstAtakhan=dto_team["objectives"].get("atakhan", {}).get("first"),
+            atakhanKills=dto_team["objectives"].get("atakhan", {}).get("kills"),
         )
 
     for dto_player in match_dto["participants"]:
