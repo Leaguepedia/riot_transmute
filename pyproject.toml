@@ -7,7 +7,7 @@ license = "MIT"
 
 [tool.poetry.dependencies]
 python = "^3.7.2"
-lol-dto = {git = "https://git.arbolitoloco.xyz/arbolitoloco/lol_dto.git", rev = "09fbb50c84"}
+lol-dto = {git = "https://git.arbolitoloco.xyz/arbolitoloco/lol_dto.git"}
 
 
 [tool.poetry.dev-dependencies]
