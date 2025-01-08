@@ -511,8 +511,8 @@ names = ["lol-id-tools (>=1.7.1,<2.0.0)"]
 [package.source]
 type = "git"
 url = "https://git.arbolitoloco.xyz/arbolitoloco/lol_dto.git"
-reference = "HEAD"
-resolved_reference = "70b257240b57bd4060eae9bbf7e87c00a886cec4"
+reference = "09fbb50c84"
+resolved_reference = "09fbb50c843400ecbcafb7c3e6422a77e8bdf94e"
 
 [[package]]
 name = "lol-id-tools"
@@ -1214,4 +1214,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.1"
 python-versions = "^3.7.2"
-content-hash = "c82b556542a000fcc8ebed211d10a910bfa97653e1ff0f3e596976cf216917e7"
+content-hash = "13b2599e2463a2af07fb6aa175f93fc3a37911200f3f0c70e74ff999eb3c155e"
