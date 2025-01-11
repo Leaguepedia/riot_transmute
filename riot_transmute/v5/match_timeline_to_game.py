@@ -305,6 +305,8 @@ def match_timeline_to_game(
                     team = game.teams.BLUE
                 elif event["teamId"] == 200:
                     team = game.teams.RED
+                elif event["teamId"] == 0:
+                    logger.warning(f"Ignoring DRAGON_SOUL_GIVEN with teamId 0")
                 else:
                     raise ValueError
 
