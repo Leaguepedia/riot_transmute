@@ -13,6 +13,7 @@ monster_type_dict = {
     "DRAGON": "DRAGON",
     "BARON_NASHOR": "BARON",
     "HORDE": "HORDE",
+    "ATAKHAN": "ATAKHAN"
 }
 
 monster_subtype_dict = {
