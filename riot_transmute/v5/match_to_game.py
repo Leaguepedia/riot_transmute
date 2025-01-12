@@ -118,6 +118,11 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
             atakhanKills=dto_team["objectives"].get("atakhan", {}).get("kills"),
         )
 
+        # Workaround for bug in patch 15.1 where atakhan data is only available for the team that killed it
+        if game.patch.split(".")[0] == 15 and not game_team.endOfGameStats.atakhanKills:
+            game_team.endOfGameStats.atakhanKills = 0
+            game_team.endOfGameStats.firstAtakhan = False
+
     for dto_player in match_dto["participants"]:
         if dto_player["teamId"] == 100:
             game_team = game.teams.BLUE
