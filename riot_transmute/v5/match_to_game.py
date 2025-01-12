@@ -119,7 +119,7 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
         )
 
         # Workaround for bug in patch 15.1 where atakhan data is only available for the team that killed it
-        if game.patch.split(".")[0] == 15 and not game_team.endOfGameStats.atakhanKills:
+        if game.patch.split(".")[0] == "15" and not game_team.endOfGameStats.atakhanKills:
             game_team.endOfGameStats.atakhanKills = 0
             game_team.endOfGameStats.firstAtakhan = False
 
