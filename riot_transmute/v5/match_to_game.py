@@ -241,7 +241,7 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
             totalTimeCCDealt=dto_player["totalTimeCCDealt"],
             # New match-v5 fields
             xp=dto_player["champExperience"],
-            bountyLevel=dto_player["bountyLevel"],
+            bountyLevel=dto_player.get("bountyLevel"),
             baronKills=dto_player["baronKills"],
             dragonKills=dto_player["dragonKills"],
             inhibitorKills=dto_player["inhibitorKills"],
