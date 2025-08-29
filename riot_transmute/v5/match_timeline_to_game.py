@@ -198,6 +198,10 @@ def match_timeline_to_game(
 
             # Skill points use
             elif event["type"] == "SKILL_LEVEL_UP":
+                # ignore SKILL_LEVEL_UP invalid events with participantId 0
+                if event["participantId"] == 0:
+                    continue
+
                 player = get_player(game, event["participantId"])
 
                 player.skillsLevelUpEvents.append(
