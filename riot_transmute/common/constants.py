@@ -144,7 +144,7 @@ building_dict = {
         turretLocation="INHIBITOR",
         side="RED",
     ),
-    (13866, 4505): game_dto.LolGameTeamBuildingKill(
+    (13861, 4516): game_dto.LolGameTeamBuildingKill(
         type="TURRET",
         lane="BOT",
         turretLocation="OUTER",
@@ -187,6 +187,14 @@ building_dict = {
     (13604, 11316): game_dto.LolGameTeamBuildingKill(
         type="INHIBITOR",
         lane="BOT",
+        side="RED",
+    ),
+    # Tower coordinates for bot outer red were changed in 25.23,
+    # this is here for backwards compatibility
+    (13866, 4505): game_dto.LolGameTeamBuildingKill(
+        type="TURRET",
+        lane="BOT",
+        turretLocation="OUTER",
         side="RED",
     ),
 }
