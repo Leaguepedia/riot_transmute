@@ -17,15 +17,15 @@ jobs:
       - uses: actions/checkout@v3
 
       # Python setup
-      - name: Set up Python 3.9
+      - name: Set up Python 3.10
         uses: actions/setup-python@v4
         with:
-          python-version: "3.9"
+          python-version: "3.10"
 
       - name: Install poetry
         uses: abatilo/actions-poetry@v2.1.6
         with:
-          poetry-version: 1.7.1
+          poetry-version: 2.2.1
 
       - name: Install python dependencies
         run: |
@@ -34,12 +34,4 @@ jobs:
       # Testing
       - name: Run Python tests
         run: |
-          poetry run coverage run -m pytest -s tests
-
-      # Generating and uploading coverage report
-      - name: Generate covera report
-        run: poetry run coverage xml
-
-      # No need for a token for public repos
-      - name: Upload coverage
-        uses: codecov/codecov-action@v3
+          poetry run pytest -s

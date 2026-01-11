@@ -10,6 +10,8 @@ import riot_transmute
 from riot_transmute.common import constants
 from riot_transmute.v5.match_to_game import role_trigrams
 
+from lol_dto.classes.game.lol_game_player import LolGamePlayerItem
+
 data_folder = os.path.join("tests", "data", "v5")
 
 # TODO Add tests with pre 11.20 games and post 11.20 to test for the duration format change
@@ -87,6 +89,10 @@ def test_match_to_game_v5(file_name):
 
             assert player.endOfGameStats.objectivesStolen is not None
 
+            # Role bound item added in 26.1
+            if int(game.patch.split(".")[0]) > 15:
+                assert player.endOfGameStats.roleBoundItem is not None
+                assert isinstance(player.endOfGameStats.roleBoundItem, LolGamePlayerItem)
 
 @pytest.mark.parametrize(
     "file_name", [f for f in os.listdir(data_folder) if "timeline" in f]

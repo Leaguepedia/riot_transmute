@@ -194,9 +194,13 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
         game_team.earlySurrendered = dto_player["teamEarlySurrendered"]
 
         items = [
-            dto.LolGamePlayerItem(id=dto_player.get(f"item{i}"), slot=i)
+            dto.LolGamePlayerItem(id=dto_player.get(f"item{i}"), slot=i, roleBound=False)
             for i in range(0, 7)
         ]
+
+        # Role Bound Item was added in 26.1
+        roleBoundItem = (dto_player.get("roleBoundItem") and dto.LolGamePlayerItem(id=dto_player["roleBoundItem"], roleBound=True)
+                        or None)
 
         end_of_game_stats = dto.LolGamePlayerEndOfGameStats(
             items=items,
@@ -260,6 +264,7 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
             totalTimeSpentDead=dto_player["totalTimeSpentDead"],
             turretTakedowns=dto_player["turretTakedowns"],
             turretKills=dto_player["turretKills"],
+            roleBoundItem=roleBoundItem,
         )
 
         game_player.endOfGameStats = end_of_game_stats
