@@ -114,14 +114,21 @@ def match_to_game(match_dto: dict) -> dto.LolGame:
             inhibitorKills=dto_team["objectives"]["inhibitor"]["kills"],
             firstHorde=dto_team["objectives"].get("horde", {}).get("first"),
             hordeKills=dto_team["objectives"].get("horde", {}).get("kills"),
-            firstAtakhan=dto_team["objectives"].get("atakhan", {}).get("first"),
-            atakhanKills=dto_team["objectives"].get("atakhan", {}).get("kills"),
         )
 
+        # ATAKHAN STUFF, only existed in 15.x
+        # Only one atakhan spawned
+
         # Workaround for bug in patch 15.1 where atakhan data is only available for the team that killed it
-        if game.patch.split(".")[0] == "15" and not game_team.endOfGameStats.atakhanKills:
-            game_team.endOfGameStats.atakhanKills = 0
-            game_team.endOfGameStats.firstAtakhan = False
+        if game.patch.split(".")[0] == "15":
+            game_team.endOfGameStats.atakhanKills = dto_team["objectives"].get("atakhan", {}).get("kills") or 0
+            game_team.endOfGameStats.firstAtakhan = bool(game_team.endOfGameStats.atakhanKills)
+        else:
+            # the key is still present in json data in patch 16.1 (26.1)
+            game_team.endOfGameStats.atakhanKills = None
+            game_team.endOfGameStats.firstAtakhan = None
+
+        # END ATAKHAN
 
     for dto_player in match_dto["participants"]:
         if dto_player["teamId"] == 100:

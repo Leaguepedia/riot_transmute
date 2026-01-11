@@ -55,10 +55,13 @@ def test_match_to_game_v5(file_name):
             assert isinstance(team.endOfGameStats.hordeKills, int)
             assert isinstance(team.endOfGameStats.firstHorde, bool)
 
-        # Patch 15.1 added Atakhan
-        if int(game.patch.split(".")[0]) > 14:
+        # Patch 15.1 added Atakhan, patch 16.1 removed it
+        if int(game.patch.split(".")[0]) == 15:
             assert isinstance(team.endOfGameStats.atakhanKills, int)
             assert isinstance(team.endOfGameStats.firstAtakhan, bool)
+        else:
+            assert team.endOfGameStats.atakhanKills is None
+            assert team.endOfGameStats.firstAtakhan is None
 
         assert len(team.players) == 5
 
