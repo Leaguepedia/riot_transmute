@@ -39,7 +39,7 @@ building_dict = {
         turretLocation="INNER",
         side="BLUE",
     ),
-    (1169, 4287): game_dto.LolGameTeamBuildingKill(
+    (1167, 4274): game_dto.LolGameTeamBuildingKill(
         type="TURRET",
         lane="TOP",
         turretLocation="INHIBITOR",
@@ -81,7 +81,7 @@ building_dict = {
         turretLocation="INHIBITOR",
         side="BLUE",
     ),
-    (1748, 2270): game_dto.LolGameTeamBuildingKill(
+    (1758, 2246): game_dto.LolGameTeamBuildingKill(
         type="TURRET",
         lane="TOP",
         turretLocation="NEXUS",
@@ -93,17 +93,17 @@ building_dict = {
         turretLocation="NEXUS",
         side="BLUE",
     ),
-    (1171, 3571): game_dto.LolGameTeamBuildingKill(
+    (1172, 3583): game_dto.LolGameTeamBuildingKill(
         type="INHIBITOR",
         lane="TOP",
         side="BLUE",
     ),
-    (3203, 3208): game_dto.LolGameTeamBuildingKill(
+    (3191, 3233): game_dto.LolGameTeamBuildingKill(
         type="INHIBITOR",
         lane="MID",
         side="BLUE",
     ),
-    (3452, 1236): game_dto.LolGameTeamBuildingKill(
+    (3462, 1246): game_dto.LolGameTeamBuildingKill(
         type="INHIBITOR",
         lane="BOT",
         side="BLUE",
@@ -196,5 +196,33 @@ building_dict = {
         lane="BOT",
         turretLocation="OUTER",
         side="RED",
+    ),
+    # Backwards compatibility (<26.22 apparently)
+	(1169, 4287): game_dto.LolGameTeamBuildingKill(
+        type="TURRET",
+        lane="TOP",
+        turretLocation="INHIBITOR",
+        side="BLUE",
+    ),
+    (1748, 2270): game_dto.LolGameTeamBuildingKill(
+        type="TURRET",
+        lane="TOP",
+        turretLocation="NEXUS",
+        side="BLUE",
+    ),
+    (1171, 3571): game_dto.LolGameTeamBuildingKill(
+        type="INHIBITOR",
+        lane="TOP",
+        side="BLUE",
+    ),
+    (3203, 3208): game_dto.LolGameTeamBuildingKill(
+        type="INHIBITOR",
+        lane="MID",
+        side="BLUE",
+    ),
+    (3452, 1236): game_dto.LolGameTeamBuildingKill(
+        type="INHIBITOR",
+        lane="BOT",
+        side="BLUE",
     ),
 }

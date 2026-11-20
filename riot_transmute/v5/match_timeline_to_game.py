@@ -151,6 +151,11 @@ def match_timeline_to_game(
                     building_dict.get((event["position"]["x"], event["position"]["y"]))
                 )
 
+                if event_dto is None:
+                    raise ValueError(
+                        f"Cannot find building dictionary for ({event['position']['x']}, {event['position']['y']})"
+                    )
+
                 # If it was a turret plate kill, we change the type from TURRET to TURRET_PLATE
                 if event["type"] == "TURRET_PLATE_DESTROYED":
                     assert event_dto.type == "TURRET"
